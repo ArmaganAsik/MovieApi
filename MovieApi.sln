@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApi.Domain", "Core\MovieApi.Domain\MovieApi.Domain.csproj", "{57FEC957-BA6F-4895-B7C0-FF88939403AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApi.Persistence", "Infrastructure\MovieApi.Persistence\MovieApi.Persistence.csproj", "{1F32236F-7C47-4D70-9185-C945DA0E4B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApi.WebApi", "Presentation\MovieApi.WebApi\MovieApi.WebApi.csproj", "{4E172975-7DE0-4DE3-AD3C-BEBF828273F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,11 +29,21 @@ Global
 		{57FEC957-BA6F-4895-B7C0-FF88939403AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57FEC957-BA6F-4895-B7C0-FF88939403AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57FEC957-BA6F-4895-B7C0-FF88939403AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F32236F-7C47-4D70-9185-C945DA0E4B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F32236F-7C47-4D70-9185-C945DA0E4B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F32236F-7C47-4D70-9185-C945DA0E4B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F32236F-7C47-4D70-9185-C945DA0E4B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E172975-7DE0-4DE3-AD3C-BEBF828273F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E172975-7DE0-4DE3-AD3C-BEBF828273F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E172975-7DE0-4DE3-AD3C-BEBF828273F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E172975-7DE0-4DE3-AD3C-BEBF828273F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{57FEC957-BA6F-4895-B7C0-FF88939403AF} = {60166005-8166-4735-932B-AA934CDEF676}
+		{1F32236F-7C47-4D70-9185-C945DA0E4B87} = {03399CD8-901E-44E8-89EC-0BE9CD1FFF9E}
+		{4E172975-7DE0-4DE3-AD3C-BEBF828273F7} = {7E61A13C-A03B-4736-9832-79F92D7860F9}
 	EndGlobalSection
 EndGlobal
