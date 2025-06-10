@@ -4,14 +4,14 @@ Bu proje, kullanıcıların dizi ve filmleri görüntüleyebileceği, puan verip
 Tamamen Api tabanlı olarak çalışması planlanmıştır.
 
 🛠 **Kullanılacak Teknolojiler & Mimari**  
-- .NET Core 9  
-- Onion Architecture  
-- MSSQL
-- Entity Framework Core
-- Code First Yaklaşımı      
-- CQRS  
-- Mediator  
-- Repository  
+- .NET Core 9 ✔
+- Onion Architecture ✔
+- MSSQL ✔
+- Entity Framework Core ✔
+- Code First Yaklaşımı ✔   
+- CQRS ✔
+- Mediator ✔
+- Repository ✔
 - Unit of Work  
 - Iterator  
 - Observer  
