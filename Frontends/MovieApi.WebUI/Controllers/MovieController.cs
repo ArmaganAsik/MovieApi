@@ -4,11 +4,11 @@ using Newtonsoft.Json;
 
 namespace MovieApi.WebUI.Controllers
 {
-    public class MoviesController : Controller
+    public class MovieController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public MoviesController(IHttpClientFactory httpClientFactory)
+        public MovieController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }

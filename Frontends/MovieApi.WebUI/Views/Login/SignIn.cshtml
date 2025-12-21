@@ -1,0 +1,153 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineVerse Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ec1313",
+                "background-light": "#f8f6f6",
+                "background-dark": "#221010",
+              },
+              fontFamily: {
+                "display": ["Be Vietnam Pro", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+    <style>
+        /* Custom Glassmorphism Utility */
+        .glass-panel {
+            background: rgba(34, 16, 16, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Autofill dark mode fix */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #2a1515 inset !important;
+            -webkit-text-fill-color: white !important;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display min-h-screen relative overflow-hidden flex flex-col items-center justify-center">
+    <!-- Cinematic Background -->
+    <div class="fixed inset-0 w-full h-full z-0">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 blur-sm brightness-50" data-alt="Blurred view of empty movie theater seats and screen with dramatic lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuByz73Wbl337VzeNsQGfj_jWySQE9IqtbGAI55yk_881aU54qSVmGln8qwu0FAnBJxCquoHRIr_QeJJnS1QGt98beNjuL5N3LY3yHxYjGHHW6sdtthe7prh4weEQLpIi5WZUpd3O8eKBLRA8k2onu5qySd11Y5P48Q4kNkOYbzbskEobjKqjcqINmN9NC3qV-CxJZn4AEy8IqoAi6FZxJdwhKZo9-kiuPvn3kKphPdHyOWf60QG6AIDUjr_CDan2x9yfyHZ-uRwk1I");'>
+        </div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#120505] via-[#221010]/80 to-[#120505]/90"></div>
+    </div>
+    <!-- Main Content Container -->
+    <div class="relative z-10 w-full max-w-[420px] px-4 flex flex-col gap-6 animate-fade-in-up">
+        <!-- Brand Header -->
+        <div class="flex flex-col items-center justify-center gap-3 py-4">
+            <div class="h-16 w-16 bg-primary rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(236,19,19,0.4)] ring-4 ring-primary/20">
+                <span class="material-symbols-outlined text-white text-[32px] fill-current">movie</span>
+            </div>
+            <h1 class="text-3xl font-extrabold tracking-tight text-white drop-shadow-lg">CINEVERSE</h1>
+        </div>
+        <!-- Login Card -->
+        <div class="glass-panel rounded-xl p-8 w-full">
+            <!-- Headline Text Component -->
+            <div class="text-center mb-8">
+                <h2 class="text-white tracking-wide text-2xl font-bold leading-tight pb-2">WELCOME BACK</h2>
+                <p class="text-gray-300 text-sm font-medium leading-normal">Sign in to explore infinite stories.</p>
+            </div>
+            <!-- Inputs Form -->
+            <form class="flex flex-col gap-5">
+                <!-- Email Field -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-gray-200 text-xs font-bold uppercase tracking-wider ml-1">Email Address</label>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors text-[20px]">mail</span>
+                        </div>
+                        <input class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-white/10 bg-[#392828]/50 focus:border-primary/50 h-12 placeholder:text-gray-500 pl-11 pr-4 text-base font-normal leading-normal transition-all duration-200" placeholder="Enter your email" type="email" value="" />
+                    </div>
+                </div>
+                <!-- Password Field -->
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-end">
+                        <label class="text-gray-200 text-xs font-bold uppercase tracking-wider ml-1">Password</label>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors text-[20px]">lock</span>
+                        </div>
+                        <input class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-white/10 bg-[#392828]/50 focus:border-primary/50 h-12 placeholder:text-gray-500 pl-11 pr-12 text-base font-normal leading-normal transition-all duration-200" placeholder="Enter your password" type="password" value="" />
+                        <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-white transition-colors" type="button">
+                            <span class="material-symbols-outlined text-[20px]">visibility</span>
+                        </button>
+                    </div>
+                    <div class="flex justify-end mt-1">
+                        <a class="text-xs text-gray-400 hover:text-primary transition-colors font-medium" href="#">Forgot password?</a>
+                    </div>
+                </div>
+                <!-- Primary Button -->
+                <button class="mt-2 w-full bg-primary hover:bg-red-600 active:bg-red-700 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-primary/25 transition-all transform active:scale-[0.98] tracking-wide text-sm uppercase" type="button">
+                    Log In
+                </button>
+            </form>
+            <!-- Social Divider -->
+            <div class="relative my-8">
+                <div aria-hidden="true" class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-white/10"></div>
+                </div>
+                <div class="relative flex justify-center">
+                    <span class="px-2 text-xs text-gray-500 uppercase tracking-widest bg-[#201010]">Or continue with</span>
+                </div>
+            </div>
+            <!-- Social Buttons -->
+            <div class="grid grid-cols-2 gap-4">
+                <button class="flex items-center justify-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-colors group">
+                    <img alt="Google Logo" class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Google G logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8M-alSqgWPlmqbdK_8nlfHSSvDyIWgwivkDK-bHld5d3ZacueJoNCu845eASIxEU9x-Ih4G4x5Ol3zqjN4S__GbXJnm1PPJ15-srbIA3l0281EmVfCW17dY_yH2V04uBA0i81Z8h1sPAn5niVZM9Qhf0FLenhL6vq32J-Yfs4qjKugJalbb3p8x-vIPgypyrMJucf3Ex-XvWzAdXnqHkyBycBG6hF7BXB9s7s4QQXDNITMtA5_05IwL8GOQMJPd2SXUGyj6PALOM" />
+                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">Google</span>
+                </button>
+                <button class="flex items-center justify-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-colors group">
+                    <span class="material-symbols-outlined text-[22px] text-gray-300 group-hover:text-white transition-colors">ios</span>
+                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">Apple</span>
+                </button>
+            </div>
+        </div>
+        <!-- Sign Up CTA -->
+        <div class="text-center py-2">
+            <p class="text-gray-400 text-sm">
+                New to CineVerse?
+                <a class="text-white font-bold hover:text-primary transition-colors ml-1" href="#">Sign Up</a>
+            </p>
+        </div>
+    </div>
+    <!-- Bottom spacing for mobile safe areas -->
+    <div class="h-8 w-full"></div>
+</body>
+</html>
