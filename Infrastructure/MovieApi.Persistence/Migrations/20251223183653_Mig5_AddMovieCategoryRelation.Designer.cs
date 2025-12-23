@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieApi.Persistence.Context;
 
@@ -11,9 +12,11 @@ using MovieApi.Persistence.Context;
 namespace MovieApi.Persistence.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [Migration("20251223183653_Mig5_AddMovieCategoryRelation")]
+    partial class Mig5_AddMovieCategoryRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,58 +305,6 @@ namespace MovieApi.Persistence.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("MovieApi.Domain.Entities.TvShow", b =>
-                {
-                    b.Property<int>("TvShowId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TvShowId"));
-
-                    b.Property<int?>("AverageEpisodeDuration")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CoverImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CreatedYear")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EpisodeCount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FirstAirDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Rating")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SeasonCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TvShowId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("TvShows");
-                });
-
             modelBuilder.Entity("MovieApi.Persistence.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -492,22 +443,9 @@ namespace MovieApi.Persistence.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("MovieApi.Domain.Entities.TvShow", b =>
-                {
-                    b.HasOne("MovieApi.Domain.Entities.Category", "Category")
-                        .WithMany("TvShows")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("MovieApi.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Movies");
-
-                    b.Navigation("TvShows");
                 });
 #pragma warning restore 612, 618
         }
