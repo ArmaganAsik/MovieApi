@@ -21,6 +21,5 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Commands.TvShowCommand
         public int EpisodeCount { get; set; }
         public string Status { get; set; }
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
     }
 }

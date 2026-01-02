@@ -6,6 +6,7 @@ using MovieApi.Application.Features.CQRSDesignPattern.Commands.MovieCommands;
 using MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers;
 using MovieApi.Application.Features.CQRSDesignPattern.Queries.MovieQueries;
 using MovieApi.Application.Features.CQRSDesignPattern.Results.MovieResults;
+using MovieApi.Domain.Entities;
 
 namespace MovieApi.WebApi.Controllers
 {
@@ -18,14 +19,16 @@ namespace MovieApi.WebApi.Controllers
         private readonly CreateMovieCommandHandler _createMovieCommandHandler;
         private readonly UpdateMovieCommandHandler _updateMovieCommandHandler;
         private readonly RemoveMovieCommandHandler _removeMovieCommandHandler;
+        private readonly GetMovieWithCategoryQueryHandler _getMovieWithCategoryQueryHandler;
 
-        public MoviesController(GetMovieQueryHandler getMovieQueryHandler, GetMovieByIdQueryHandler getMovieByIdQueryHandler, CreateMovieCommandHandler createMovieCommandHandler, UpdateMovieCommandHandler updateMovieCommandHandler, RemoveMovieCommandHandler removeMovieCommandHandler)
+        public MoviesController(GetMovieQueryHandler getMovieQueryHandler, GetMovieByIdQueryHandler getMovieByIdQueryHandler, CreateMovieCommandHandler createMovieCommandHandler, UpdateMovieCommandHandler updateMovieCommandHandler, RemoveMovieCommandHandler removeMovieCommandHandler, GetMovieWithCategoryQueryHandler getMovieWithCategoryQueryHandler)
         {
             _getMovieQueryHandler = getMovieQueryHandler;
             _getMovieByIdQueryHandler = getMovieByIdQueryHandler;
             _createMovieCommandHandler = createMovieCommandHandler;
             _updateMovieCommandHandler = updateMovieCommandHandler;
             _removeMovieCommandHandler = removeMovieCommandHandler;
+            _getMovieWithCategoryQueryHandler = getMovieWithCategoryQueryHandler;
         }
 
         [HttpGet]
@@ -61,6 +64,13 @@ namespace MovieApi.WebApi.Controllers
         {
             GetMovieByIdQueryResult movie = await _getMovieByIdQueryHandler.Handle(new GetMovieByIdQuery(id));
             return Ok(movie);
+        }
+
+        [HttpGet("GetMovieWithCategory")]
+        public async Task<IActionResult> GetMovieWithCategory()
+        {
+            List<GetMovieWithCategoryQueryResult> values = await _getMovieWithCategoryQueryHandler.Handle();
+            return Ok(values);
         }
     }
 }

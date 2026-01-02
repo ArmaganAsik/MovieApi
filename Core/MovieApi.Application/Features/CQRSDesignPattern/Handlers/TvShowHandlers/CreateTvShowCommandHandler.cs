@@ -32,8 +32,7 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.TvShowHandler
                 SeasonCount = command.SeasonCount,
                 EpisodeCount = command.EpisodeCount,
                 Status = command.Status,
-                CategoryId = command.CategoryId,
-                Category= command.Category
+                CategoryId = command.CategoryId
             });
             await _context.SaveChangesAsync();
         }

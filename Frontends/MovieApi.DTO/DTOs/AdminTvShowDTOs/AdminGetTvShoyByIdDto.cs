@@ -1,14 +1,14 @@
-﻿using MovieApi.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieApi.Application.Features.CQRSDesignPattern.Commands.TvShowCommands
+namespace MovieApi.DTO.DTOs.AdminTvShowDTOs
 {
-    public class CreateTvShowCommand
+    public class AdminGetTvShoyByIdDto
     {
+        public int TvShowId { get; set; }
         public string Title { get; set; }
         public string CoverImageUrl { get; set; }
         public decimal Rating { get; set; }
