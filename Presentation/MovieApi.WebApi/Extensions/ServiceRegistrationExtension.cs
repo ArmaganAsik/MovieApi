@@ -28,6 +28,7 @@ namespace MovieApi.WebApi.Extensions
             services.AddScoped<CreateTvShowCommandHandler>();
             services.AddScoped<RemoveTvShowCommandHandler>();
             services.AddScoped<UpdateTvShowCommandHandler>();
+            services.AddScoped<GetTvShowWithCategoryQueryHandler>();
 
             services.AddScoped<CreateUserRegisterCommandHandler>();
 

@@ -13,6 +13,17 @@ namespace MovieApi.Persistence.Context
             base.OnConfiguring(optionsBuilder);
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Review>()
+                .HasOne<AppUser>()
+                .WithMany()
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
         public DbSet<Cast> Casts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Movie> Movies { get; set; }

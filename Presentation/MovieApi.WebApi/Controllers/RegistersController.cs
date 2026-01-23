@@ -22,5 +22,16 @@ namespace MovieApi.WebApi.Controllers
             await _createUserRegisterCommandHandler.Handle(command);
             return Ok("User added successfully!");
         }
+
+        [HttpPost("CreateUserRegisterBulk")]
+        public async Task<IActionResult> CreateUserRegisterBulk(List<CreateUserRegisterCommand> commands)
+        {
+            foreach (CreateUserRegisterCommand command in commands)
+            {
+                await _createUserRegisterCommandHandler.Handle(command);
+            }
+
+            return Ok($"{commands.Count} users added successfully!");
+        }
     }
 }

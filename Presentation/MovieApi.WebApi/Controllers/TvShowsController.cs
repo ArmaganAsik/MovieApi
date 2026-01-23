@@ -16,14 +16,16 @@ namespace MovieApi.WebApi.Controllers
         private readonly CreateTvShowCommandHandler _createTvShowCommandHandler;
         private readonly UpdateTvShowCommandHandler _updateTvShowCommandHandler;
         private readonly RemoveTvShowCommandHandler _removeTvShowCommandHandler;
+        private readonly GetTvShowWithCategoryQueryHandler _getTvShowWithCategoryQueryHandler;
 
-        public TvShowsController(GetTvShowQueryHandler getTvShowQueryHandler, GetTvShowByIdQueryHandler getTvShowByIdQueryHandler, CreateTvShowCommandHandler createTvShowCommandHandler, UpdateTvShowCommandHandler updateTvShowCommandHandler, RemoveTvShowCommandHandler removeTvShowCommandHandler)
+        public TvShowsController(GetTvShowQueryHandler getTvShowQueryHandler, GetTvShowByIdQueryHandler getTvShowByIdQueryHandler, CreateTvShowCommandHandler createTvShowCommandHandler, UpdateTvShowCommandHandler updateTvShowCommandHandler, RemoveTvShowCommandHandler removeTvShowCommandHandler, GetTvShowWithCategoryQueryHandler getTvShowWithCategoryQueryHandler)
         {
             _getTvShowQueryHandler = getTvShowQueryHandler;
             _getTvShowByIdQueryHandler = getTvShowByIdQueryHandler;
             _createTvShowCommandHandler = createTvShowCommandHandler;
             _updateTvShowCommandHandler = updateTvShowCommandHandler;
             _removeTvShowCommandHandler = removeTvShowCommandHandler;
+            _getTvShowWithCategoryQueryHandler = getTvShowWithCategoryQueryHandler;
         }
 
         [HttpGet]
@@ -59,6 +61,13 @@ namespace MovieApi.WebApi.Controllers
         {
             GetTvShowByIdQueryResult tvShow = await _getTvShowByIdQueryHandler.Handle(new GetTvShowByIdQuery(id));
             return Ok(tvShow);
+        }
+
+        [HttpGet("GetTvShowWithCategory")]
+        public async Task<IActionResult> GetTvShowWithCategory()
+        {
+            List<GetTvShowWithCategoryQueryResult> values = await _getTvShowWithCategoryQueryHandler.Handle();
+            return Ok(values);
         }
     }
 }

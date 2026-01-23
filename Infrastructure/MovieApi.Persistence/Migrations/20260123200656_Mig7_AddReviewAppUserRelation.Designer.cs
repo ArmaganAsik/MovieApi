@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieApi.Persistence.Context;
 
@@ -11,9 +12,11 @@ using MovieApi.Persistence.Context;
 namespace MovieApi.Persistence.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [Migration("20260123200656_Mig7_AddReviewAppUserRelation")]
+    partial class Mig7_AddReviewAppUserRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,24 +270,15 @@ namespace MovieApi.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"));
 
-                    b.Property<bool>("IsSpoiler")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("LikeCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReviewComment")
+                    b.Property<string>("Comment")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("ReviewDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<decimal?>("SentimentScore")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -293,12 +287,7 @@ namespace MovieApi.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<byte>("UserRating")
-                        .HasColumnType("tinyint");
-
                     b.HasKey("ReviewId");
-
-                    b.HasIndex("MovieId");
 
                     b.HasIndex("UserId");
 
@@ -514,19 +503,11 @@ namespace MovieApi.Persistence.Migrations
 
             modelBuilder.Entity("MovieApi.Domain.Entities.Review", b =>
                 {
-                    b.HasOne("MovieApi.Domain.Entities.Movie", "Movie")
-                        .WithMany("Reviews")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MovieApi.Persistence.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("MovieApi.Domain.Entities.TvShow", b =>
@@ -545,11 +526,6 @@ namespace MovieApi.Persistence.Migrations
                     b.Navigation("Movies");
 
                     b.Navigation("TvShows");
-                });
-
-            modelBuilder.Entity("MovieApi.Domain.Entities.Movie", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }
